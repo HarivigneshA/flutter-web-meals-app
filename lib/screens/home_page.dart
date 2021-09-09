@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/constants.dart';
 import 'package:meals_app/provider/device_details.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
