@@ -70,26 +70,31 @@ class _HomePageState extends State<HomePage> {
                           text: 'HOME',
                           textColor: Colors.black,
                           paddingColor: primaryColor,
+                          route: homePageRoute,
                         ),
                         TopBarCell(
                           text: 'PRICING',
                           textColor: Colors.grey,
                           paddingColor: Colors.white,
+                          route: homePageRoute,
                         ),
                         TopBarCell(
                           text: 'CONTACT',
                           textColor: Colors.grey,
                           paddingColor: Colors.white,
+                          route: homePageRoute,
                         ),
                         TopBarCell(
                           text: 'LOGIN',
                           textColor: Colors.grey,
                           paddingColor: Colors.white,
+                          route: loginPageRoute,
                         ),
                         TopBarCell(
                           text: 'ABOUT US',
                           textColor: Colors.grey,
                           paddingColor: Colors.white,
+                          route: homePageRoute,
                         ),
                       ],
                     )

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/constants.dart';
 
 class TopBarCell extends StatelessWidget {
-  final String text;
+  final String text,route;
   final Color textColor, paddingColor;
 
   const TopBarCell({
     required this.text,
     required this.textColor,
     required this.paddingColor,
+    required this.route,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print('clicked !');
+        Navigator.pushNamed(context, route);
       },
       child: Container(
         child: Padding(

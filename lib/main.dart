@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/home_page.dart';
+import 'package:meals_app/router.dart';
 import 'constants.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    Flurorouter.setupRouter();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Meals app',
-      theme: ThemeData(primaryColor: primaryColor),
-      home: HomePage(),
       debugShowCheckedModeBanner: false,
+      initialRoute: splashRoute,
+      onGenerateRoute: Flurorouter.router.generator,
     );
   }
 }
