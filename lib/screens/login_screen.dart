@@ -4,7 +4,6 @@ class LoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _LoginScreenState();
 }
-
 enum FormType { login, register }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -48,47 +47,65 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            textFieldWidget(
-                emailFilter: _emailFilter, passwordFilter: _passwordFilter),
-            (_form == FormType.login)
-                ? Container(
-                    child: Column(
-                      children: <Widget>[
-                        ElevatedButton(
-                          child: Text('Login'),
-                          onPressed: _loginPressed,
-                        ),
-                        TextButton(
-                          child: Text(
-                              'Dont have an account? Tap here to register.'),
-                          onPressed: _formChange,
-                        ),
-                        TextButton(
-                          child: Text('Forgot Password?'),
-                          onPressed: _passwordReset,
-                        )
-                      ],
-                    ),
-                  )
-                : Container(
-                    child: Column(
-                      children: <Widget>[
-                        ElevatedButton(
-                          child: Text('Create an Account'),
-                          onPressed: _createAccountPressed,
-                        ),
-                        TextButton(
-                          child: Text('Have an account? Click here to login.'),
-                          onPressed: _formChange,
-                        )
-                      ],
-                    ),
-                  ),
-          ],
+      body: Center(
+        child: LayoutBuilder(
+          builder: (context, constraints) => Container(
+            height: constraints.maxHeight * 0.60,
+            width: constraints.maxWidth * 0.50,
+            padding: EdgeInsets.all(16.0),
+            child: Card(
+              elevation: 50,
+              shadowColor: Colors.black,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    TextFieldWidget(
+                        emailFilter: _emailFilter,
+                        passwordFilter: _passwordFilter),
+                    (_form == FormType.login)
+                        ? Container(
+                            child: Column(
+                              children: <Widget>[
+                                ElevatedButton(
+                                  child: Text('Login'),
+                                  onPressed: _loginPressed,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 7),
+                                  child: TextButton(
+                                    child: Text(
+                                        'Dont have an account? Tap here to register.'),
+                                    onPressed: _formChange,
+                                  ),
+                                ),
+                                TextButton(
+                                  child: Text('Forgot Password?'),
+                                  onPressed: _passwordReset,
+                                )
+                              ],
+                            ),
+                          )
+                        : Container(
+                            child: Column(
+                              children: <Widget>[
+                                ElevatedButton(
+                                  child: Text('Create an Account'),
+                                  onPressed: _createAccountPressed,
+                                ),
+                                TextButton(
+                                  child: Text(
+                                      'Have an account? Click here to login.'),
+                                  onPressed: _formChange,
+                                )
+                              ],
+                            ),
+                          ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -107,8 +124,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class textFieldWidget extends StatelessWidget {
-  const textFieldWidget({
+class TextFieldWidget extends StatelessWidget {
+  const TextFieldWidget({
     Key? key,
     required TextEditingController emailFilter,
     required TextEditingController passwordFilter,
@@ -121,23 +138,28 @@ class textFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Container(
-            child: TextField(
-              controller: _emailFilter,
-              decoration: InputDecoration(labelText: 'Email'),
+    return LayoutBuilder(
+      builder: (context, constraints) => Container(
+        margin: EdgeInsets.only(bottom: 20),
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: constraints.maxWidth * 0.60,
+              child: TextField(
+                controller: _emailFilter,
+                decoration: InputDecoration(labelText: 'Email'),
+              ),
             ),
-          ),
-          Container(
-            child: TextField(
-              controller: _passwordFilter,
-              decoration: InputDecoration(labelText: 'Password'),
-              obscureText: true,
-            ),
-          )
-        ],
+            Container(
+              width: constraints.maxWidth * 0.60,
+              child: TextField(
+                controller: _passwordFilter,
+                decoration: InputDecoration(labelText: 'Password'),
+                obscureText: true,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

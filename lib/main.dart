@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/router.dart';
+import 'package:meals_app/screens/home_page.dart';
 import 'constants.dart';
 
 void main() {
@@ -24,7 +25,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: splashRoute,
+      home: HomePage(),
+      initialRoute: homePageRoute,
       onGenerateRoute: Flurorouter.router.generator,
     );
   }
