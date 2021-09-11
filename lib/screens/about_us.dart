@@ -13,7 +13,7 @@ class AboutUs extends StatelessWidget {
             textColor: Colors.teal.shade900,
             logo: AssetImage('images/splash.png'),
             email: 'adoshi26.ad@gmail.com',
-            companyName: 'Developer & Team',
+            companyName: ' Adoshi ',
             companyColor: Colors.teal.shade100,
             dividerThickness: 2,
             phoneNumber: '+917818044311',
