@@ -1,11 +1,9 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:meals_app/constants.dart';
 import 'package:meals_app/screens/about_us.dart';
 import 'package:meals_app/screens/home_page.dart';
 import 'package:meals_app/screens/login_screen.dart';
 import 'package:meals_app/screens/route_not_found_handler.dart';
-import 'package:meals_app/screens/splash_screen.dart';
 
 class Flurorouter {
   static final FluroRouter router = FluroRouter();
