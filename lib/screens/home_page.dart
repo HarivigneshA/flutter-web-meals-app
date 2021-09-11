@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                             text: 'ABOUT US',
                             textColor: Colors.grey,
                             paddingColor: Colors.white,
-                            route: homePageRoute,
+                            route: aboutUsPageRoute,
                           ),
                         ],
                       )
